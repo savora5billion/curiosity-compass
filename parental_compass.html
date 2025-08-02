@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parental Compass - Discover Your Child's Talents</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sage': {
+                            50: '#f6f7f6',
+                            100: '#e3e7e3',
+                            200: '#c7d0c7',
+                            300: '#a3b3a3',
+                            400: '#7a8f7a',
+                            500: '#5a715a',
+                            600: '#465946',
+                            700: '#3a483a',
+                            800: '#2f3a2f',
+                            900: '#283128'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-sage-50 min-h-screen">
+    <!-- Chosen Palette: Sage Green - A calming, professional palette that promotes focus and creativity while being easy on the eyes for parents who may use this app during quiet moments. -->
+    <!-- Application Structure Plan: Three main sections: Daily Prompt (primary focus), Past Entries (secondary), and Interests Visualization (tertiary). This structure prioritizes the core daily interaction while providing easy access to reflection and pattern recognition. The layout flows naturally from action (daily prompt) to reflection (past entries) to insight (interests). -->
+    <!-- Visualization & Content Choices: Uses local storage for data persistence, keyword extraction for interest categorization, and a simple tag cloud visualization. The keyword system categorizes responses into Creativity/Engineering, Emotions/Social Skills, Science/Nature, and Problem Solving themes. NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-sage-800 mb-2">Parental Compass</h1>
+            <p class="text-sage-600 text-lg">Discover your child's talents through daily curiosity</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="flex justify-center mb-8">
+            <div class="bg-white rounded-lg shadow-md p-1">
+                <button id="dailyTab" class="px-6 py-2 rounded-md font-medium transition-colors bg-sage-100 text-sage-800">Daily Prompt</button>
+                <button id="historyTab" class="px-6 py-2 rounded-md font-medium transition-colors text-sage-600 hover:bg-sage-50">Past Entries</button>
+                <button id="interestsTab" class="px-6 py-2 rounded-md font-medium transition-colors text-sage-600 hover:bg-sage-50">View Interests</button>
+            </div>
+        </div>
+
+        <!-- Daily Prompt Section -->
+        <section id="dailySection" class="space-y-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-semibold text-sage-800">Today's Curiosity Prompt</h2>
+                    <span id="currentDate" class="text-sage-500 text-sm"></span>
+                </div>
+                
+                <div class="bg-sage-50 rounded-lg p-4 mb-6">
+                    <p id="dailyQuestion" class="text-lg text-sage-700 leading-relaxed"></p>
+                </div>
+
+                <div class="space-y-4">
+                    <label for="childAnswer" class="block text-sm font-medium text-sage-700">Your child's response:</label>
+                    <textarea 
+                        id="childAnswer" 
+                        rows="4" 
+                        class="w-full px-3 py-2 border border-sage-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sage-500 focus:border-transparent resize-none"
+                        placeholder="Type or paste your child's answer here..."
+                    ></textarea>
+                    
+                    <div class="flex justify-end space-x-3">
+                        <button id="saveEntry" class="px-6 py-2 bg-sage-600 text-white rounded-md hover:bg-sage-700 transition-colors font-medium">
+                            Save Entry
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Entries Section -->
+        <section id="historySection" class="hidden space-y-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold text-sage-800 mb-6">Past Entries</h2>
+                <div id="entriesList" class="space-y-4">
+                    <!-- Entries will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Visualization Section -->
+        <section id="interestsSection" class="hidden space-y-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold text-sage-800 mb-6">Your Child's Emerging Interests</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Interest Categories -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-medium text-sage-700">Interest Categories</h3>
+                        <div id="interestCategories" class="space-y-3">
+                            <!-- Categories will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Tag Cloud -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-medium text-sage-700">Interest Cloud</h3>
+                        <div id="tagCloud" class="bg-sage-50 rounded-lg p-4 min-h-[200px] flex flex-wrap gap-2 items-center justify-center">
+                            <!-- Tags will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Predefined questions covering various themes
+        const dailyQuestions = [
+            "What would you invent if you could make anything in the world?",
+            "If you could talk to any animal, which one would you choose and what would you ask?",
+            "What makes you feel really happy, and why?",
+            "If you could solve any problem in the world, what would it be?",
+            "What do you think happens when we dream?",
+            "If you could build anything with blocks or Legos, what would you create?",
+            "What's something that makes you feel brave?",
+            "If you could explore anywhere in the universe, where would you go?",
+            "What do you think makes someone a good friend?",
+            "If you could design a new toy, what would it do?",
+            "What's something you're curious about that you'd like to learn more about?",
+            "If you could help someone today, who would you help and how?",
+            "What do you think makes plants grow?",
+            "If you could create a new color, what would you call it and what would it look like?",
+            "What's something that makes you feel proud of yourself?"
+        ];
+
+        // Keyword categories for interest analysis
+        const keywordCategories = {
+            'Creativity/Engineering': ['build', 'create', 'design', 'invent', 'make', 'draw', 'paint', 'color', 'art', 'craft', 'construct', 'imagine', 'dream'],
+            'Emotions/Social Skills': ['feel', 'happy', 'sad', 'help', 'friend', 'love', 'care', 'brave', 'proud', 'scared', 'excited', 'kind', 'share'],
+            'Science/Nature': ['animal', 'plant', 'grow', 'star', 'planet', 'universe', 'explore', 'learn', 'discover', 'nature', 'earth', 'space', 'experiment'],
+            'Problem Solving': ['solve', 'think', 'figure', 'understand', 'know', 'question', 'curious', 'wonder', 'why', 'how', 'what', 'explain', 'find']
+        };
+
+        class ParentalCompass {
+            constructor() {
+                this.entries = this.loadEntries();
+                this.currentQuestionIndex = this.getCurrentQuestionIndex();
+                this.initializeApp();
+                this.setupEventListeners();
+            }
+
+            initializeApp() {
+                this.displayCurrentDate();
+                this.displayDailyQuestion();
+                this.checkExistingEntry();
+                this.updateInterests();
+            }
+
+            setupEventListeners() {
+                document.getElementById('dailyTab').addEventListener('click', () => this.showSection('daily'));
+                document.getElementById('historyTab').addEventListener('click', () => this.showSection('history'));
+                document.getElementById('interestsTab').addEventListener('click', () => this.showSection('interests'));
+                document.getElementById('saveEntry').addEventListener('click', () => this.saveEntry());
+            }
+
+            showSection(section) {
+                // Hide all sections
+                document.getElementById('dailySection').classList.add('hidden');
+                document.getElementById('historySection').classList.add('hidden');
+                document.getElementById('interestsSection').classList.add('hidden');
+
+                // Remove active state from all tabs
+                document.getElementById('dailyTab').classList.remove('bg-sage-100', 'text-sage-800');
+                document.getElementById('historyTab').classList.remove('bg-sage-100', 'text-sage-800');
+                document.getElementById('interestsTab').classList.remove('bg-sage-100', 'text-sage-800');
+
+                // Show selected section and activate tab
+                switch(section) {
+                    case 'daily':
+                        document.getElementById('dailySection').classList.remove('hidden');
+                        document.getElementById('dailyTab').classList.add('bg-sage-100', 'text-sage-800');
+                        break;
+                    case 'history':
+                        document.getElementById('historySection').classList.remove('hidden');
+                        document.getElementById('historyTab').classList.add('bg-sage-100', 'text-sage-800');
+                        this.displayPastEntries();
+                        break;
+                    case 'interests':
+                        document.getElementById('interestsSection').classList.remove('hidden');
+                        document.getElementById('interestsTab').classList.add('bg-sage-100', 'text-sage-800');
+                        this.updateInterests();
+                        break;
+                }
+            }
+
+            getCurrentQuestionIndex() {
+                const today = new Date().toDateString();
+                const startDate = new Date('2024-01-01').toDateString();
+                const daysDiff = Math.floor((new Date(today) - new Date(startDate)) / (1000 * 60 * 60 * 24));
+                return daysDiff % dailyQuestions.length;
+            }
+
+            displayCurrentDate() {
+                const today = new Date().toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                document.getElementById('currentDate').textContent = today;
+            }
+
+            displayDailyQuestion() {
+                const question = dailyQuestions[this.currentQuestionIndex];
+                document.getElementById('dailyQuestion').textContent = question;
+            }
+
+            checkExistingEntry() {
+                const today = new Date().toDateString();
+                const existingEntry = this.entries.find(entry => entry.date === today);
+                
+                if (existingEntry) {
+                    document.getElementById('childAnswer').value = existingEntry.answer;
+                    document.getElementById('childAnswer').disabled = true;
+                    document.getElementById('saveEntry').textContent = 'Already Saved';
+                    document.getElementById('saveEntry').disabled = true;
+                    document.getElementById('saveEntry').classList.add('bg-sage-400', 'cursor-not-allowed');
+                }
+            }
+
+            saveEntry() {
+                const answer = document.getElementById('childAnswer').value.trim();
+                if (!answer) {
+                    alert('Please enter your child\'s response before saving.');
+                    return;
+                }
+
+                const today = new Date().toDateString();
+                const question = dailyQuestions[this.currentQuestionIndex];
+                
+                const entry = {
+                    date: today,
+                    question: question,
+                    answer: answer,
+                    interests: this.extractInterests(answer)
+                };
+
+                // Check if entry already exists
+                const existingIndex = this.entries.findIndex(e => e.date === today);
+                if (existingIndex !== -1) {
+                    this.entries[existingIndex] = entry;
+                } else {
+                    this.entries.push(entry);
+                }
+
+                this.saveEntries();
+                this.updateInterests();
+                
+                // Update UI
+                document.getElementById('saveEntry').textContent = 'Saved!';
+                document.getElementById('saveEntry').disabled = true;
+                document.getElementById('saveEntry').classList.add('bg-sage-400', 'cursor-not-allowed');
+                
+                setTimeout(() => {
+                    alert('Entry saved successfully!');
+                }, 100);
+            }
+
+            extractInterests(answer) {
+                const lowerAnswer = answer.toLowerCase();
+                const interests = {};
+
+                for (const [category, keywords] of Object.entries(keywordCategories)) {
+                    interests[category] = 0;
+                    for (const keyword of keywords) {
+                        if (lowerAnswer.includes(keyword)) {
+                            interests[category] += 1;
+                        }
+                    }
+                }
+
+                return interests;
+            }
+
+            displayPastEntries() {
+                const entriesList = document.getElementById('entriesList');
+                entriesList.innerHTML = '';
+
+                if (this.entries.length === 0) {
+                    entriesList.innerHTML = '<p class="text-sage-500 text-center py-8">No entries yet. Start with today\'s prompt!</p>';
+                    return;
+                }
+
+                this.entries.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(entry => {
+                    const entryElement = document.createElement('div');
+                    entryElement.className = 'border border-sage-200 rounded-lg p-4';
+                    entryElement.innerHTML = `
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-sm text-sage-500">${new Date(entry.date).toLocaleDateString('en-US', { 
+                                weekday: 'short', 
+                                month: 'short', 
+                                day: 'numeric' 
+                            })}</span>
+                        </div>
+                        <div class="mb-3">
+                            <p class="font-medium text-sage-700 mb-2">${entry.question}</p>
+                            <p class="text-sage-600 leading-relaxed">${entry.answer}</p>
+                        </div>
+                    `;
+                    entriesList.appendChild(entryElement);
+                });
+            }
+
+            updateInterests() {
+                this.displayInterestCategories();
+                this.displayTagCloud();
+            }
+
+            displayInterestCategories() {
+                const categoriesContainer = document.getElementById('interestCategories');
+                categoriesContainer.innerHTML = '';
+
+                const categoryTotals = {};
+                for (const category of Object.keys(keywordCategories)) {
+                    categoryTotals[category] = 0;
+                }
+
+                // Sum up all interests from entries
+                this.entries.forEach(entry => {
+                    if (entry.interests) {
+                        for (const [category, count] of Object.entries(entry.interests)) {
+                            categoryTotals[category] += count;
+                        }
+                    }
+                });
+
+                // Display categories with scores
+                for (const [category, total] of Object.entries(categoryTotals)) {
+                    if (total > 0) {
+                        const categoryElement = document.createElement('div');
+                        categoryElement.className = 'flex justify-between items-center p-3 bg-sage-50 rounded-lg';
+                        categoryElement.innerHTML = `
+                            <span class="text-sage-700">${category}</span>
+                            <span class="bg-sage-200 text-sage-800 px-2 py-1 rounded-full text-sm font-medium">${total}</span>
+                        `;
+                        categoriesContainer.appendChild(categoryElement);
+                    }
+                }
+
+                if (Object.values(categoryTotals).every(total => total === 0)) {
+                    categoriesContainer.innerHTML = '<p class="text-sage-500 text-center py-4">No interests detected yet. Save some entries to see patterns emerge!</p>';
+                }
+            }
+
+            displayTagCloud() {
+                const tagCloud = document.getElementById('tagCloud');
+                tagCloud.innerHTML = '';
+
+                const allKeywords = {};
+                
+                // Collect all keywords from entries
+                this.entries.forEach(entry => {
+                    if (entry.interests) {
+                        for (const [category, count] of Object.entries(entry.interests)) {
+                            if (count > 0) {
+                                const keywords = keywordCategories[category];
+                                keywords.forEach(keyword => {
+                                    if (entry.answer.toLowerCase().includes(keyword)) {
+                                        allKeywords[keyword] = (allKeywords[keyword] || 0) + 1;
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+
+                if (Object.keys(allKeywords).length === 0) {
+                    tagCloud.innerHTML = '<p class="text-sage-500 text-center">No keywords detected yet. Start saving entries to build your interest cloud!</p>';
+                    return;
+                }
+
+                // Create tag elements
+                for (const [keyword, count] of Object.entries(allKeywords)) {
+                    const tagElement = document.createElement('span');
+                    const fontSize = Math.max(12, Math.min(24, 12 + count * 2));
+                    tagElement.className = 'inline-block px-3 py-1 rounded-full text-white font-medium transition-all hover:scale-105';
+                    tagElement.style.fontSize = `${fontSize}px`;
+                    tagElement.style.backgroundColor = this.getTagColor(count);
+                    tagElement.textContent = keyword;
+                    tagElement.title = `Mentioned ${count} time${count > 1 ? 's' : ''}`;
+                    tagCloud.appendChild(tagElement);
+                }
+            }
+
+            getTagColor(count) {
+                const colors = [
+                    '#5a715a', // sage-600
+                    '#7a8f7a', // sage-500
+                    '#a3b3a3', // sage-400
+                    '#c7d0c7', // sage-300
+                    '#e3e7e3'  // sage-200
+                ];
+                const index = Math.min(count - 1, colors.length - 1);
+                return colors[index];
+            }
+
+            loadEntries() {
+                const saved = localStorage.getItem('parentalCompassEntries');
+                return saved ? JSON.parse(saved) : [];
+            }
+
+            saveEntries() {
+                localStorage.setItem('parentalCompassEntries', JSON.stringify(this.entries));
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            new ParentalCompass();
+        });
+    </script>
+</body>
+</html> 

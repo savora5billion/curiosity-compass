@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curiosity Compass - Sharpen Your Thinking & Writing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ocean': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-ocean-50 min-h-screen">
+    <!-- Chosen Palette: Ocean Blue - A refreshing, inspiring palette that promotes clear thinking and creativity while maintaining professional appeal for adult users. -->
+    <!-- Application Structure Plan: Three main sections: Daily Prompt (primary focus), Writing History (secondary), and Thinking Patterns (tertiary). This structure prioritizes the core daily writing practice while providing reflection on past thoughts and emerging thinking patterns. -->
+    <!-- Visualization & Content Choices: Uses local storage for data persistence, keyword extraction for thinking pattern analysis, and a simple tag cloud visualization. The keyword system categorizes responses into Creative Thinking, Analytical Thinking, Emotional Intelligence, and Problem Solving themes. NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-ocean-800 mb-2">Curiosity Compass</h1>
+            <p class="text-ocean-600 text-lg">Sharpen your thinking & writing skills through daily reflection</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="flex justify-center mb-8">
+            <div class="bg-white rounded-lg shadow-md p-1">
+                <button id="dailyTab" class="px-6 py-2 rounded-md font-medium transition-colors bg-ocean-100 text-ocean-800">Daily Prompt</button>
+                <button id="historyTab" class="px-6 py-2 rounded-md font-medium transition-colors text-ocean-600 hover:bg-ocean-50">Writing History</button>
+                <button id="patternsTab" class="px-6 py-2 rounded-md font-medium transition-colors text-ocean-600 hover:bg-ocean-50">Thinking Patterns</button>
+            </div>
+        </div>
+
+        <!-- Daily Prompt Section -->
+        <section id="dailySection" class="space-y-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-semibold text-ocean-800">Today's Thinking Prompt</h2>
+                    <span id="currentDate" class="text-ocean-500 text-sm"></span>
+                </div>
+                
+                <div class="bg-ocean-50 rounded-lg p-4 mb-6">
+                    <p id="dailyQuestion" class="text-lg text-ocean-700 leading-relaxed"></p>
+                </div>
+
+                <div class="space-y-4">
+                    <label for="userResponse" class="block text-sm font-medium text-ocean-700">Your thoughts:</label>
+                    <textarea 
+                        id="userResponse" 
+                        rows="6" 
+                        class="w-full px-3 py-2 border border-ocean-300 rounded-md focus:outline-none focus:ring-2 focus:ring-ocean-500 focus:border-transparent resize-none"
+                        placeholder="Write your thoughts, reflections, or ideas here..."
+                    ></textarea>
+                    
+                    <div class="flex justify-between items-center">
+                        <button id="newPrompt" class="px-4 py-2 bg-ocean-200 text-ocean-800 rounded-md hover:bg-ocean-300 transition-colors font-medium">
+                            New Prompt
+                        </button>
+                        <button id="saveEntry" class="px-6 py-2 bg-ocean-600 text-white rounded-md hover:bg-ocean-700 transition-colors font-medium">
+                            Save Entry
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Writing History Section -->
+        <section id="historySection" class="hidden space-y-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold text-ocean-800 mb-6">Writing History</h2>
+                <div id="entriesList" class="space-y-4">
+                    <!-- Entries will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Thinking Patterns Section -->
+        <section id="patternsSection" class="hidden space-y-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold text-ocean-800 mb-6">Your Thinking Patterns</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Thinking Categories -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-medium text-ocean-700">Thinking Categories</h3>
+                        <div id="thinkingCategories" class="space-y-3">
+                            <!-- Categories will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Tag Cloud -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-medium text-ocean-700">Thought Cloud</h3>
+                        <div id="tagCloud" class="bg-ocean-50 rounded-lg p-4 min-h-[200px] flex flex-wrap gap-2 items-center justify-center">
+                            <!-- Tags will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Enhanced prompts for adult thinking and writing practice
+        const dailyQuestions = [
+            "What's a belief you held strongly five years ago that you've since changed your mind about? What changed it?",
+            "If you could have a conversation with your future self from 10 years from now, what would you ask?",
+            "What's something you've learned recently that completely shifted your perspective on a topic?",
+            "Describe a moment when you felt completely in flow - what were you doing and why do you think it happened?",
+            "What's a problem in your field or industry that you think is being solved the wrong way? How would you approach it differently?",
+            "If you had to explain your job to a 10-year-old, how would you describe it?",
+            "What's a skill you wish you had started learning earlier in life? What's stopping you from learning it now?",
+            "Think of someone you admire. What specific qualities do they have that you'd like to develop in yourself?",
+            "What's a question you've been asking yourself lately that you don't have a good answer to?",
+            "If you could design a perfect day from start to finish, what would it look like?",
+            "What's something you used to be afraid of that you're no longer afraid of? What changed?",
+            "Describe a time when you had to make a decision with incomplete information. How did you approach it?",
+            "What's a book, movie, or piece of art that changed how you see the world? What specifically resonated with you?",
+            "If you could solve any problem in the world, what would it be and why?",
+            "What's something you're curious about that you'd like to explore more deeply?",
+            "Think about a time when you felt most alive. What were the circumstances and what made it special?",
+            "What's a piece of advice you've received that you initially ignored but later realized was valuable?",
+            "If you could have dinner with anyone from history, who would it be and what would you ask them?",
+            "What's a habit you've developed that has had the most positive impact on your life?",
+            "Describe a situation where you had to adapt quickly to change. What did you learn about yourself?",
+            "What's something you're passionate about that most people don't understand?",
+            "If you could give one piece of advice to your younger self, what would it be?",
+            "What's a question you've been avoiding asking yourself? Why are you avoiding it?",
+            "Think about a time when you felt completely out of your comfort zone. What did you learn from that experience?"
+        ];
+
+        // Keyword categories for thinking pattern analysis
+        const keywordCategories = {
+            'Creative Thinking': ['imagine', 'create', 'design', 'invent', 'dream', 'vision', 'art', 'creative', 'original', 'unique', 'innovate', 'explore', 'discover'],
+            'Analytical Thinking': ['analyze', 'think', 'reason', 'logic', 'evidence', 'data', 'research', 'study', 'examine', 'investigate', 'understand', 'comprehend', 'evaluate'],
+            'Emotional Intelligence': ['feel', 'emotion', 'empathy', 'compassion', 'relationship', 'connection', 'vulnerable', 'authentic', 'mindful', 'awareness', 'growth', 'healing'],
+            'Problem Solving': ['solve', 'challenge', 'obstacle', 'difficulty', 'overcome', 'strategy', 'approach', 'solution', 'fix', 'resolve', 'address', 'tackle', 'navigate']
+        };
+
+        class CuriosityCompass {
+            constructor() {
+                this.entries = this.loadEntries();
+                this.currentQuestionIndex = this.getCurrentQuestionIndex();
+                this.initializeApp();
+                this.setupEventListeners();
+            }
+
+            initializeApp() {
+                this.displayCurrentDate();
+                this.displayDailyQuestion();
+                this.checkExistingEntry();
+                this.updatePatterns();
+            }
+
+            setupEventListeners() {
+                document.getElementById('dailyTab').addEventListener('click', () => this.showSection('daily'));
+                document.getElementById('historyTab').addEventListener('click', () => this.showSection('history'));
+                document.getElementById('patternsTab').addEventListener('click', () => this.showSection('patterns'));
+                document.getElementById('saveEntry').addEventListener('click', () => this.saveEntry());
+                document.getElementById('newPrompt').addEventListener('click', () => this.generateNewPrompt());
+            }
+
+            showSection(section) {
+                // Hide all sections
+                document.getElementById('dailySection').classList.add('hidden');
+                document.getElementById('historySection').classList.add('hidden');
+                document.getElementById('patternsSection').classList.add('hidden');
+
+                // Remove active state from all tabs
+                document.getElementById('dailyTab').classList.remove('bg-ocean-100', 'text-ocean-800');
+                document.getElementById('historyTab').classList.remove('bg-ocean-100', 'text-ocean-800');
+                document.getElementById('patternsTab').classList.remove('bg-ocean-100', 'text-ocean-800');
+
+                // Show selected section and activate tab
+                switch(section) {
+                    case 'daily':
+                        document.getElementById('dailySection').classList.remove('hidden');
+                        document.getElementById('dailyTab').classList.add('bg-ocean-100', 'text-ocean-800');
+                        break;
+                    case 'history':
+                        document.getElementById('historySection').classList.remove('hidden');
+                        document.getElementById('historyTab').classList.add('bg-ocean-100', 'text-ocean-800');
+                        this.displayPastEntries();
+                        break;
+                    case 'patterns':
+                        document.getElementById('patternsSection').classList.remove('hidden');
+                        document.getElementById('patternsTab').classList.add('bg-ocean-100', 'text-ocean-800');
+                        this.updatePatterns();
+                        break;
+                }
+            }
+
+            getCurrentQuestionIndex() {
+                const today = new Date().toDateString();
+                const startDate = new Date('2024-01-01').toDateString();
+                const daysDiff = Math.floor((new Date(today) - new Date(startDate)) / (1000 * 60 * 60 * 24));
+                return daysDiff % dailyQuestions.length;
+            }
+
+            generateNewPrompt() {
+                // Generate a random question different from the current one
+                let newIndex;
+                do {
+                    newIndex = Math.floor(Math.random() * dailyQuestions.length);
+                } while (newIndex === this.currentQuestionIndex);
+                
+                this.currentQuestionIndex = newIndex;
+                this.displayDailyQuestion();
+                
+                // Reset the form
+                document.getElementById('userResponse').value = '';
+                document.getElementById('userResponse').disabled = false;
+                document.getElementById('saveEntry').textContent = 'Save Entry';
+                document.getElementById('saveEntry').disabled = false;
+                document.getElementById('saveEntry').classList.remove('bg-ocean-400', 'cursor-not-allowed');
+            }
+
+            displayCurrentDate() {
+                const today = new Date().toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                document.getElementById('currentDate').textContent = today;
+            }
+
+            displayDailyQuestion() {
+                const question = dailyQuestions[this.currentQuestionIndex];
+                document.getElementById('dailyQuestion').textContent = question;
+            }
+
+            checkExistingEntry() {
+                const today = new Date().toDateString();
+                const existingEntry = this.entries.find(entry => entry.date === today);
+                
+                if (existingEntry) {
+                    document.getElementById('userResponse').value = existingEntry.answer;
+                    document.getElementById('userResponse').disabled = true;
+                    document.getElementById('saveEntry').textContent = 'Already Saved';
+                    document.getElementById('saveEntry').disabled = true;
+                    document.getElementById('saveEntry').classList.add('bg-ocean-400', 'cursor-not-allowed');
+                }
+            }
+
+            saveEntry() {
+                const answer = document.getElementById('userResponse').value.trim();
+                if (!answer) {
+                    alert('Please write your thoughts before saving.');
+                    return;
+                }
+
+                const today = new Date().toDateString();
+                const question = dailyQuestions[this.currentQuestionIndex];
+                
+                const entry = {
+                    date: today,
+                    question: question,
+                    answer: answer,
+                    patterns: this.extractPatterns(answer)
+                };
+
+                // Check if entry already exists
+                const existingIndex = this.entries.findIndex(e => e.date === today);
+                if (existingIndex !== -1) {
+                    this.entries[existingIndex] = entry;
+                } else {
+                    this.entries.push(entry);
+                }
+
+                this.saveEntries();
+                this.updatePatterns();
+                
+                // Update UI
+                document.getElementById('saveEntry').textContent = 'Saved!';
+                document.getElementById('saveEntry').disabled = true;
+                document.getElementById('saveEntry').classList.add('bg-ocean-400', 'cursor-not-allowed');
+                
+                setTimeout(() => {
+                    alert('Entry saved successfully!');
+                }, 100);
+            }
+
+            extractPatterns(answer) {
+                const lowerAnswer = answer.toLowerCase();
+                const patterns = {};
+
+                for (const [category, keywords] of Object.entries(keywordCategories)) {
+                    patterns[category] = 0;
+                    for (const keyword of keywords) {
+                        if (lowerAnswer.includes(keyword)) {
+                            patterns[category] += 1;
+                        }
+                    }
+                }
+
+                return patterns;
+            }
+
+            displayPastEntries() {
+                const entriesList = document.getElementById('entriesList');
+                entriesList.innerHTML = '';
+
+                if (this.entries.length === 0) {
+                    entriesList.innerHTML = '<p class="text-ocean-500 text-center py-8">No entries yet. Start with today\'s prompt!</p>';
+                    return;
+                }
+
+                this.entries.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(entry => {
+                    const entryElement = document.createElement('div');
+                    entryElement.className = 'border border-ocean-200 rounded-lg p-4';
+                    entryElement.innerHTML = `
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-sm text-ocean-500">${new Date(entry.date).toLocaleDateString('en-US', { 
+                                weekday: 'short', 
+                                month: 'short', 
+                                day: 'numeric' 
+                            })}</span>
+                        </div>
+                        <div class="mb-3">
+                            <p class="font-medium text-ocean-700 mb-2">${entry.question}</p>
+                            <p class="text-ocean-600 leading-relaxed whitespace-pre-wrap">${entry.answer}</p>
+                        </div>
+                    `;
+                    entriesList.appendChild(entryElement);
+                });
+            }
+
+            updatePatterns() {
+                this.displayThinkingCategories();
+                this.displayTagCloud();
+            }
+
+            displayThinkingCategories() {
+                const categoriesContainer = document.getElementById('thinkingCategories');
+                categoriesContainer.innerHTML = '';
+
+                const categoryTotals = {};
+                for (const category of Object.keys(keywordCategories)) {
+                    categoryTotals[category] = 0;
+                }
+
+                // Sum up all patterns from entries
+                this.entries.forEach(entry => {
+                    if (entry.patterns) {
+                        for (const [category, count] of Object.entries(entry.patterns)) {
+                            categoryTotals[category] += count;
+                        }
+                    }
+                });
+
+                // Display categories with scores
+                for (const [category, total] of Object.entries(categoryTotals)) {
+                    if (total > 0) {
+                        const categoryElement = document.createElement('div');
+                        categoryElement.className = 'flex justify-between items-center p-3 bg-ocean-50 rounded-lg';
+                        categoryElement.innerHTML = `
+                            <span class="text-ocean-700">${category}</span>
+                            <span class="bg-ocean-200 text-ocean-800 px-2 py-1 rounded-full text-sm font-medium">${total}</span>
+                        `;
+                        categoriesContainer.appendChild(categoryElement);
+                    }
+                }
+
+                if (Object.values(categoryTotals).every(total => total === 0)) {
+                    categoriesContainer.innerHTML = '<p class="text-ocean-500 text-center py-4">No thinking patterns detected yet. Save some entries to see your patterns emerge!</p>';
+                }
+            }
+
+            displayTagCloud() {
+                const tagCloud = document.getElementById('tagCloud');
+                tagCloud.innerHTML = '';
+
+                const allKeywords = {};
+                
+                // Collect all keywords from entries
+                this.entries.forEach(entry => {
+                    if (entry.patterns) {
+                        for (const [category, count] of Object.entries(entry.patterns)) {
+                            if (count > 0) {
+                                const keywords = keywordCategories[category];
+                                keywords.forEach(keyword => {
+                                    if (entry.answer.toLowerCase().includes(keyword)) {
+                                        allKeywords[keyword] = (allKeywords[keyword] || 0) + 1;
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+
+                if (Object.keys(allKeywords).length === 0) {
+                    tagCloud.innerHTML = '<p class="text-ocean-500 text-center">No keywords detected yet. Start saving entries to build your thought cloud!</p>';
+                    return;
+                }
+
+                // Create tag elements
+                for (const [keyword, count] of Object.entries(allKeywords)) {
+                    const tagElement = document.createElement('span');
+                    const fontSize = Math.max(12, Math.min(24, 12 + count * 2));
+                    tagElement.className = 'inline-block px-3 py-1 rounded-full text-white font-medium transition-all hover:scale-105';
+                    tagElement.style.fontSize = `${fontSize}px`;
+                    tagElement.style.backgroundColor = this.getTagColor(count);
+                    tagElement.textContent = keyword;
+                    tagElement.title = `Mentioned ${count} time${count > 1 ? 's' : ''}`;
+                    tagCloud.appendChild(tagElement);
+                }
+            }
+
+            getTagColor(count) {
+                const colors = [
+                    '#0ea5e9', // ocean-500
+                    '#0284c7', // ocean-600
+                    '#0369a1', // ocean-700
+                    '#075985', // ocean-800
+                    '#0c4a6e'  // ocean-900
+                ];
+                const index = Math.min(count - 1, colors.length - 1);
+                return colors[index];
+            }
+
+            loadEntries() {
+                const saved = localStorage.getItem('curiosityCompassEntries');
+                return saved ? JSON.parse(saved) : [];
+            }
+
+            saveEntries() {
+                localStorage.setItem('curiosityCompassEntries', JSON.stringify(this.entries));
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            new CuriosityCompass();
+        });
+    </script>
+</body>
+</html> 
