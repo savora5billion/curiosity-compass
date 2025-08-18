@@ -1,0 +1,391 @@
+{
+  "reasoning-programming-course": {
+    "courseInfo": {
+      "title": "Programming & Problem Solving",
+      "description": "Develop logical thinking through coding, algorithms, and computational problem solving",
+      "duration": "7 weeks",
+      "difficulty": "Beginner to Intermediate",
+      "prerequisites": "Basic computer literacy",
+      "certificate": "Programming Fundamentals Certificate"
+    },
+    "modules": [
+      {
+        "id": "module-1",
+        "title": "Programming Fundamentals",
+        "duration": "3 weeks",
+        "description": "Learn the basics of Python programming and computational thinking",
+        "lessons": [
+          {
+            "id": "lesson-1-1",
+            "title": "Introduction to Programming",
+            "duration": "45 minutes",
+            "content": {
+              "video": "https://example.com/videos/programming-intro",
+              "reading": "What is Programming? Understanding the basics of how computers work and why we program them.",
+              "exercises": [
+                {
+                  "type": "quiz",
+                  "question": "What is the main purpose of programming?",
+                  "options": [
+                    "To make computers faster",
+                    "To solve problems using computers",
+                    "To play games",
+                    "To browse the internet"
+                  ],
+                  "correct": 1
+                },
+                {
+                  "type": "reflection",
+                  "prompt": "Think of 3 problems in your daily life that could be solved with programming. Write them down and explain how programming might help."
+                }
+              ],
+              "resources": [
+                "Python Installation Guide",
+                "Code Editor Setup (VS Code)",
+                "Basic Computer Concepts PDF"
+              ]
+            }
+          },
+          {
+            "id": "lesson-1-2",
+            "title": "Variables and Data Types",
+            "duration": "60 minutes",
+            "content": {
+              "video": "https://example.com/videos/variables-datatypes",
+              "reading": "Learn about variables, strings, numbers, and how to store and manipulate data in Python.",
+              "exercises": [
+                {
+                  "type": "coding",
+                  "title": "Variable Practice",
+                  "instructions": "Create variables for your name, age, favorite color, and a number. Print them all out.",
+                  "starter_code": "# Create your variables here\n\n\n\n# Print them here\n",
+                  "solution": "# Create your variables here\nname = \"Your Name\"\nage = 15\nfavorite_color = \"blue\"\nnumber = 42\n\n# Print them here\nprint(\"Name:\", name)\nprint(\"Age:\", age)\nprint(\"Favorite Color:\", favorite_color)\nprint(\"Number:\", number)"
+                },
+                {
+                  "type": "project",
+                  "title": "Personal Information Card",
+                  "description": "Create a program that displays your personal information in a formatted card."
+                }
+              ],
+              "resources": [
+                "Python Data Types Cheat Sheet",
+                "Variable Naming Conventions",
+                "Interactive Python Tutorial"
+              ]
+            }
+          },
+          {
+            "id": "lesson-1-3",
+            "title": "Control Structures",
+            "duration": "75 minutes",
+            "content": {
+              "video": "https://example.com/videos/control-structures",
+              "reading": "Master if/else statements, loops, and how to make your programs make decisions.",
+              "exercises": [
+                {
+                  "type": "coding",
+                  "title": "Number Guessing Game",
+                  "instructions": "Create a simple number guessing game using if/else statements.",
+                  "starter_code": "import random\nsecret_number = random.randint(1, 10)\n\n# Ask user for a guess\n# Use if/else to tell them if they're right or wrong\n",
+                  "solution": "import random\nsecret_number = random.randint(1, 10)\n\nguess = int(input(\"Guess a number between 1 and 10: \"))\n\nif guess == secret_number:\n    print(\"Congratulations! You guessed it!\")\nelif guess < secret_number:\n    print(\"Too low! The number was\", secret_number)\nelse:\n    print(\"Too high! The number was\", secret_number)"
+                },
+                {
+                  "type": "challenge",
+                  "title": "Grade Calculator",
+                  "description": "Create a program that takes a test score and returns the letter grade (A, B, C, D, F)."
+                }
+              ],
+              "resources": [
+                "Control Flow Diagrams",
+                "Loop Examples",
+                "Conditional Logic Practice"
+              ]
+            }
+          },
+          {
+            "id": "lesson-1-4",
+            "title": "Functions",
+            "duration": "60 minutes",
+            "content": {
+              "video": "https://example.com/videos/functions",
+              "reading": "Learn to create reusable code blocks with functions and parameters.",
+              "exercises": [
+                {
+                  "type": "coding",
+                  "title": "Function Library",
+                  "instructions": "Create functions for common calculations: area of circle, temperature conversion, and factorial.",
+                  "starter_code": "# Write your functions here\n\ndef area_of_circle(radius):\n    # Calculate area of circle\n    pass\n\ndef celsius_to_fahrenheit(celsius):\n    # Convert celsius to fahrenheit\n    pass\n\ndef factorial(n):\n    # Calculate factorial\n    pass\n\n# Test your functions\n",
+                  "solution": "import math\n\ndef area_of_circle(radius):\n    return math.pi * radius ** 2\n\ndef celsius_to_fahrenheit(celsius):\n    return (celsius * 9/5) + 32\n\ndef factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n-1)\n\n# Test your functions\nprint(\"Area of circle with radius 5:\", area_of_circle(5))\nprint(\"25°C in Fahrenheit:\", celsius_to_fahrenheit(25))\nprint(\"Factorial of 5:\", factorial(5))"
+                }
+              ],
+              "resources": [
+                "Function Best Practices",
+                "Parameter Passing Examples",
+                "Scope and Variables"
+              ]
+            }
+          }
+        ],
+        "project": {
+          "title": "Calculator App",
+          "description": "Build a simple calculator that can perform basic arithmetic operations",
+          "requirements": [
+            "Use functions for each operation (add, subtract, multiply, divide)",
+            "Handle user input and display results",
+            "Include error handling for division by zero",
+            "Create a menu-driven interface"
+          ],
+          "rubric": {
+            "Functionality": "Calculator performs all basic operations correctly",
+            "User Interface": "Clear menu and easy-to-use interface",
+            "Error Handling": "Properly handles invalid inputs and division by zero",
+            "Code Quality": "Well-organized, commented code with proper functions"
+          }
+        }
+      },
+      {
+        "id": "module-2",
+        "title": "Algorithm & Problem Solving",
+        "duration": "2 weeks",
+        "description": "Develop algorithmic thinking and problem-solving strategies",
+        "lessons": [
+          {
+            "id": "lesson-2-1",
+            "title": "Introduction to Algorithms",
+            "duration": "60 minutes",
+            "content": {
+              "video": "https://example.com/videos/algorithms-intro",
+              "reading": "What are algorithms? Understanding step-by-step problem-solving approaches.",
+              "exercises": [
+                {
+                  "type": "algorithmic",
+                  "title": "Daily Routine Algorithm",
+                  "description": "Write down your morning routine as a step-by-step algorithm. Identify any decision points or loops."
+                },
+                {
+                  "type": "pseudocode",
+                  "title": "Making a Sandwich",
+                  "description": "Write pseudocode for making a sandwich. Include all steps and decision points."
+                }
+              ],
+              "resources": [
+                "Algorithm Examples",
+                "Pseudocode Guide",
+                "Problem-Solving Strategies"
+              ]
+            }
+          },
+          {
+            "id": "lesson-2-2",
+            "title": "Data Structures Basics",
+            "duration": "75 minutes",
+            "content": {
+              "video": "https://example.com/videos/data-structures",
+              "reading": "Learn about lists, dictionaries, and when to use different data structures.",
+              "exercises": [
+                {
+                  "type": "coding",
+                  "title": "Student Grade Tracker",
+                  "instructions": "Create a program that stores student names and grades using appropriate data structures.",
+                  "starter_code": "# Create a dictionary to store student grades\nstudents = {}\n\n# Add some sample data\n# Write functions to add students, get grades, and calculate averages\n",
+                  "solution": "# Create a dictionary to store student grades\nstudents = {}\n\ndef add_student(name, grade):\n    students[name] = grade\n\ndef get_grade(name):\n    return students.get(name, \"Student not found\")\n\ndef calculate_average():\n    if not students:\n        return 0\n    return sum(students.values()) / len(students)\n\n# Add some sample data\nadd_student(\"Alice\", 85)\nadd_student(\"Bob\", 92)\nadd_student(\"Charlie\", 78)\n\nprint(\"Alice's grade:\", get_grade(\"Alice\"))\nprint(\"Class average:\", calculate_average())"
+                }
+              ],
+              "resources": [
+                "Python Data Structures Guide",
+                "When to Use Lists vs Dictionaries",
+                "Data Structure Performance"
+              ]
+            }
+          },
+          {
+            "id": "lesson-2-3",
+            "title": "Searching and Sorting",
+            "duration": "90 minutes",
+            "content": {
+              "video": "https://example.com/videos/searching-sorting",
+              "reading": "Learn about linear search, binary search, and basic sorting algorithms.",
+              "exercises": [
+                {
+                  "type": "coding",
+                  "title": "Implement Linear Search",
+                  "instructions": "Write a function that finds a number in a list using linear search.",
+                  "starter_code": "def linear_search(numbers, target):\n    # Implement linear search\n    # Return the index if found, -1 if not found\n    pass\n\n# Test your function\nnumbers = [4, 2, 7, 1, 9, 3, 6]\nprint(linear_search(numbers, 7))  # Should return 2\nprint(linear_search(numbers, 5))  # Should return -1",
+                  "solution": "def linear_search(numbers, target):\n    for i in range(len(numbers)):\n        if numbers[i] == target:\n            return i\n    return -1\n\n# Test your function\nnumbers = [4, 2, 7, 1, 9, 3, 6]\nprint(linear_search(numbers, 7))  # Should return 2\nprint(linear_search(numbers, 5))  # Should return -1"
+                },
+                {
+                  "type": "visualization",
+                  "title": "Algorithm Visualization",
+                  "description": "Create a visual representation of how a sorting algorithm works using drawings or animations."
+                }
+              ],
+              "resources": [
+                "Searching Algorithms Comparison",
+                "Sorting Algorithm Animations",
+                "Algorithm Complexity Basics"
+              ]
+            }
+          }
+        ],
+        "project": {
+          "title": "Problem Solving Portfolio",
+          "description": "Solve 5 different programming problems and document your approach",
+          "problems": [
+            "Find the largest number in a list",
+            "Check if a string is a palindrome",
+            "Calculate the Fibonacci sequence",
+            "Find common elements in two lists",
+            "Convert a number to binary"
+          ],
+          "requirements": [
+            "Solve each problem using different approaches",
+            "Document your problem-solving process",
+            "Include time and space complexity analysis",
+            "Create a presentation of your solutions"
+          ]
+        }
+      },
+      {
+        "id": "module-3",
+        "title": "Web Development",
+        "duration": "2 weeks",
+        "description": "Build interactive web applications using HTML, CSS, and JavaScript",
+        "lessons": [
+          {
+            "id": "lesson-3-1",
+            "title": "HTML Fundamentals",
+            "duration": "60 minutes",
+            "content": {
+              "video": "https://example.com/videos/html-basics",
+              "reading": "Learn HTML structure, elements, and how to create web pages.",
+              "exercises": [
+                {
+                  "type": "coding",
+                  "title": "Personal Profile Page",
+                  "instructions": "Create an HTML page with your personal information, including headings, paragraphs, and lists.",
+                  "starter_code": "<!DOCTYPE html>\n<html>\n<head>\n    <title>My Profile</title>\n</head>\n<body>\n    <!-- Add your content here -->\n</body>\n</html>",
+                  "solution": "<!DOCTYPE html>\n<html>\n<head>\n    <title>My Profile</title>\n</head>\n<body>\n    <h1>My Personal Profile</h1>\n    <h2>About Me</h2>\n    <p>I am a student learning programming and web development.</p>\n    \n    <h2>My Skills</h2>\n    <ul>\n        <li>Python Programming</li>\n        <li>Problem Solving</li>\n        <li>Web Development</li>\n    </ul>\n    \n    <h2>My Goals</h2>\n    <ol>\n        <li>Master programming fundamentals</li>\n        <li>Build real-world projects</li>\n        <li>Learn advanced algorithms</li>\n    </ol>\n</body>\n</html>"
+                }
+              ],
+              "resources": [
+                "HTML Element Reference",
+                "Semantic HTML Guide",
+                "Web Accessibility Basics"
+              ]
+            }
+          },
+          {
+            "id": "lesson-3-2",
+            "title": "CSS Styling",
+            "duration": "75 minutes",
+            "content": {
+              "video": "https://example.com/videos/css-styling",
+              "reading": "Learn CSS selectors, properties, and how to style your web pages.",
+              "exercises": [
+                {
+                  "type": "coding",
+                  "title": "Style Your Profile Page",
+                  "instructions": "Add CSS to make your profile page look professional and attractive.",
+                  "starter_code": "/* Add your CSS styles here */\nbody {\n    /* Style the body */\n}\n\nh1 {\n    /* Style the main heading */\n}\n\n/* Add more styles for other elements */",
+                  "solution": "body {\n    font-family: Arial, sans-serif;\n    max-width: 800px;\n    margin: 0 auto;\n    padding: 20px;\n    background-color: #f5f5f5;\n}\n\nh1 {\n    color: #333;\n    text-align: center;\n    border-bottom: 2px solid #007bff;\n    padding-bottom: 10px;\n}\n\nh2 {\n    color: #007bff;\n    margin-top: 30px;\n}\n\nul, ol {\n    background-color: white;\n    padding: 20px;\n    border-radius: 5px;\n    box-shadow: 0 2px 5px rgba(0,0,0,0.1);\n}"
+                }
+              ],
+              "resources": [
+                "CSS Property Reference",
+                "CSS Layout Techniques",
+                "Responsive Design Basics"
+              ]
+            }
+          },
+          {
+            "id": "lesson-3-3",
+            "title": "JavaScript Interactivity",
+            "duration": "90 minutes",
+            "content": {
+              "video": "https://example.com/videos/javascript-basics",
+              "reading": "Learn JavaScript basics and how to add interactivity to web pages.",
+              "exercises": [
+                {
+                  "type": "coding",
+                  "title": "Interactive Calculator",
+                  "instructions": "Create a simple calculator using HTML, CSS, and JavaScript.",
+                  "starter_code": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Calculator</title>\n</head>\n<body>\n    <div id=\"calculator\">\n        <input type=\"text\" id=\"display\" readonly>\n        <!-- Add calculator buttons -->\n    </div>\n    \n    <script>\n        // Add your JavaScript here\n    </script>\n</body>\n</html>",
+                  "solution": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Calculator</title>\n    <style>\n        #calculator { width: 300px; margin: 50px auto; }\n        #display { width: 100%; height: 40px; font-size: 20px; }\n        button { width: 70px; height: 40px; margin: 2px; font-size: 18px; }\n    </style>\n</head>\n<body>\n    <div id=\"calculator\">\n        <input type=\"text\" id=\"display\" readonly>\n        <br>\n        <button onclick=\"appendNumber('7')\">7</button>\n        <button onclick=\"appendNumber('8')\">8</button>\n        <button onclick=\"appendNumber('9')\">9</button>\n        <button onclick=\"setOperation('+')\">+</button><br>\n        <button onclick=\"appendNumber('4')\">4</button>\n        <button onclick=\"appendNumber('5')\">5</button>\n        <button onclick=\"appendNumber('6')\">6</button>\n        <button onclick=\"setOperation('-')\">-</button><br>\n        <button onclick=\"appendNumber('1')\">1</button>\n        <button onclick=\"appendNumber('2')\">2</button>\n        <button onclick=\"appendNumber('3')\">3</button>\n        <button onclick=\"setOperation('*')\">×</button><br>\n        <button onclick=\"appendNumber('0')\">0</button>\n        <button onclick=\"clearDisplay()\">C</button>\n        <button onclick=\"calculate()\">=</button>\n        <button onclick=\"setOperation('/')\">÷</button>\n    </div>\n    \n    <script>\n        let displayValue = '';\n        let operation = '';\n        let firstNumber = 0;\n        \n        function appendNumber(num) {\n            displayValue += num;\n            document.getElementById('display').value = displayValue;\n        }\n        \n        function setOperation(op) {\n            firstNumber = parseFloat(displayValue);\n            operation = op;\n            displayValue = '';\n        }\n        \n        function calculate() {\n            let secondNumber = parseFloat(displayValue);\n            let result;\n            \n            switch(operation) {\n                case '+': result = firstNumber + secondNumber; break;\n                case '-': result = firstNumber - secondNumber; break;\n                case '*': result = firstNumber * secondNumber; break;\n                case '/': result = firstNumber / secondNumber; break;\n            }\n            \n            document.getElementById('display').value = result;\n            displayValue = result.toString();\n        }\n        \n        function clearDisplay() {\n            displayValue = '';\n            document.getElementById('display').value = '';\n        }\n    </script>\n</body>\n</html>"
+                }
+              ],
+              "resources": [
+                "JavaScript Basics",
+                "DOM Manipulation",
+                "Event Handling"
+              ]
+            }
+          }
+        ],
+        "project": {
+          "title": "Personal Website",
+          "description": "Create a complete personal website showcasing your skills and projects",
+          "requirements": [
+            "Responsive design that works on mobile and desktop",
+            "Navigation menu with multiple pages",
+            "Portfolio section with your projects",
+            "Contact form with JavaScript validation",
+            "Interactive elements and animations"
+          ],
+          "pages": [
+            "Home page with introduction",
+            "About page with skills and experience",
+            "Portfolio page with project showcase",
+            "Contact page with form"
+          ]
+        }
+      }
+    ],
+    "assessments": [
+      {
+        "id": "assessment-1",
+        "title": "Programming Fundamentals Quiz",
+        "type": "quiz",
+        "questions": [
+          {
+            "question": "What is the output of print(2 + 3 * 4)?",
+            "options": ["20", "14", "24", "Error"],
+            "correct": 1
+          },
+          {
+            "question": "Which data type is used to store text in Python?",
+            "options": ["int", "float", "str", "bool"],
+            "correct": 2
+          },
+          {
+            "question": "What does the range(5) function return?",
+            "options": ["[0,1,2,3,4]", "[1,2,3,4,5]", "[0,1,2,3,4,5]", "Error"],
+            "correct": 0
+          }
+        ]
+      },
+      {
+        "id": "assessment-2",
+        "title": "Problem Solving Challenge",
+        "type": "coding",
+        "description": "Solve a real-world programming problem within 30 minutes",
+        "problem": "Write a function that finds the second largest number in a list without using built-in sort functions."
+      }
+    ],
+    "certificate": {
+      "title": "Programming Fundamentals Certificate",
+      "requirements": [
+        "Complete all modules with 80% or higher",
+        "Submit all projects for review",
+        "Pass final assessment",
+        "Create a portfolio of work"
+      ],
+      "skills": [
+        "Python Programming",
+        "Algorithm Design",
+        "Problem Solving",
+        "Web Development",
+        "Logical Thinking"
+      ]
+    }
+  }
+}

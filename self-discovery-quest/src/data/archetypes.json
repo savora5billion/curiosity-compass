@@ -1,0 +1,122 @@
+{
+  "Explorer": {
+    "icon": "🌍",
+    "title": "The Explorer",
+    "blurb": "Curious, adventurous, and energized by new experiences and ideas. You love discovering new places, concepts, and possibilities.",
+    "activities": ["Try a new hiking trail", "Explore a new subject on YouTube/Udemy", "Start a curiosity journal"],
+    "riasec": ["Investigative", "Artistic"],
+    "aptitude": ["Spatial", "Verbal"],
+    "personality": ["Imaginative", "Curious", "Open-minded"],
+    "careerClusters": ["Science & Mathematics", "Mass Communication", "Humanities, Liberal Arts & Social Sciences"],
+    "skills": ["Research", "Creative Thinking", "Communication", "Adaptability"],
+    "learningStyle": "Exploratory learning with hands-on discovery and creative projects"
+  },
+  "Maker": {
+    "icon": "🛠",
+    "title": "The Maker",
+    "blurb": "Hands-on, loves building and tinkering to bring ideas to life. You excel at creating tangible solutions and working with tools.",
+    "activities": ["Build a DIY kit", "3D print a simple model", "Disassemble and fix an old gadget"],
+    "riasec": ["Realistic", "Artistic"],
+    "aptitude": ["Mechanical", "Spatial"],
+    "personality": ["Practical", "Focused", "Patient"],
+    "careerClusters": ["Engineering & Technology", "Art & Design", "Information Technology & Computer Science"],
+    "skills": ["Prototyping", "Technical Design", "Problem Solving", "Hands-on Skills"],
+    "learningStyle": "Project-based learning with hands-on building and technical exercises"
+  },
+  "Thinker": {
+    "icon": "🧠",
+    "title": "The Thinker",
+    "blurb": "Logical, analytical, and enjoys puzzles and challenging problems. You excel at breaking down complex issues into solvable parts.",
+    "activities": ["Solve logic puzzles", "Try coding katas", "Read about game theory"],
+    "riasec": ["Investigative", "Conventional"],
+    "aptitude": ["Reasoning", "Numerical"],
+    "personality": ["Analytical", "Focused", "Organized"],
+    "careerClusters": ["Information Technology & Computer Science", "Science & Mathematics", "Finance & Banking"],
+    "skills": ["Data Analysis", "Logical Reasoning", "Problem Solving", "Strategic Thinking"],
+    "learningStyle": "Analytical learning with structured problem-solving and research projects"
+  },
+  "Artist": {
+    "icon": "🎨",
+    "title": "The Artist",
+    "blurb": "Creative, expressive, and sees the world through patterns and aesthetics. You bring beauty and meaning to everything you create.",
+    "activities": ["Sketch daily for a week", "Compose a short tune", "Design a poster in Canva"],
+    "riasec": ["Artistic"],
+    "aptitude": ["Spatial", "Verbal"],
+    "personality": ["Imaginative", "Expressive", "Sensitive"],
+    "careerClusters": ["Art & Design", "Performing Arts", "Mass Communication"],
+    "skills": ["Creative Expression", "Visual Design", "Storytelling", "Aesthetic Judgment"],
+    "learningStyle": "Creative learning with artistic projects and self-expression exercises"
+  },
+  "Healer": {
+    "icon": "❤️",
+    "title": "The Healer",
+    "blurb": "Empathetic, caring, and drawn to helping others feel better. You have a natural ability to understand and support people.",
+    "activities": ["Volunteer locally", "Start a gratitude log", "Learn basic first aid"],
+    "riasec": ["Social"],
+    "aptitude": ["Verbal"],
+    "personality": ["Cooperative", "Warm", "Empathetic"],
+    "careerClusters": ["Medical Sciences", "Education & Teaching", "Allied & Para Medical Sciences"],
+    "skills": ["Empathy", "Communication", "Patient Care", "Teaching"],
+    "learningStyle": "Collaborative learning with community service and helping others"
+  },
+  "Leader": {
+    "icon": "🦁",
+    "title": "The Leader",
+    "blurb": "Organizes teams, motivates action, and enjoys taking responsibility. You naturally guide others toward shared goals.",
+    "activities": ["Plan a small event", "Lead a group project", "Read about leadership styles"],
+    "riasec": ["Enterprising", "Social"],
+    "aptitude": ["Verbal", "Numerical"],
+    "personality": ["Goal-oriented", "Energetic", "Confident"],
+    "careerClusters": ["Business Management", "Government & Defence Services", "Education & Teaching"],
+    "skills": ["Leadership", "Strategic Planning", "Team Management", "Communication"],
+    "learningStyle": "Leadership learning with team projects and strategic planning exercises"
+  },
+  "Innovator": {
+    "icon": "💡",
+    "title": "The Innovator",
+    "blurb": "Loves reframing problems and creating better solutions. You see opportunities where others see obstacles.",
+    "activities": ["Redesign a daily routine", "Participate in a hackathon", "Mind-map solutions for a school issue"],
+    "riasec": ["Artistic", "Investigative"],
+    "aptitude": ["Reasoning", "Spatial"],
+    "personality": ["Imaginative", "Analytical", "Creative"],
+    "careerClusters": ["Information Technology & Computer Science", "Engineering & Technology", "Business Management"],
+    "skills": ["Innovation", "Design Thinking", "Problem Solving", "Creative Research"],
+    "learningStyle": "Innovation learning with creative problem-solving and design challenges"
+  },
+  "Performer": {
+    "icon": "🎭",
+    "title": "The Performer",
+    "blurb": "Communicates with energy on stage or in front of others. You have a natural ability to engage and inspire audiences.",
+    "activities": ["Join a debate", "Record a podcast clip", "Perform a short skit"],
+    "riasec": ["Artistic", "Enterprising"],
+    "aptitude": ["Verbal", "Spatial"],
+    "personality": ["Energetic", "Expressive", "Confident"],
+    "careerClusters": ["Performing Arts", "Mass Communication", "Sales & Marketing"],
+    "skills": ["Public Speaking", "Performance", "Communication", "Audience Engagement"],
+    "learningStyle": "Performance learning with presentation and communication exercises"
+  },
+  "Naturalist": {
+    "icon": "🌱",
+    "title": "The Naturalist",
+    "blurb": "Connected to nature, patterns in ecosystems, and environmental care. You understand the interconnectedness of living systems.",
+    "activities": ["Grow a plant", "Birdwatch and log species", "Clean a local park"],
+    "riasec": ["Realistic", "Investigative"],
+    "aptitude": ["Spatial", "Reasoning"],
+    "personality": ["Practical", "Analytical", "Caring"],
+    "careerClusters": ["Agricultural & Food Sciences", "Science & Mathematics", "Medical Sciences"],
+    "skills": ["Environmental Science", "Observation", "Research", "Sustainability"],
+    "learningStyle": "Nature-based learning with environmental projects and scientific observation"
+  },
+  "Analyst": {
+    "icon": "📊",
+    "title": "The Analyst",
+    "blurb": "Investigative, data-driven, and looks for evidence before conclusions. You excel at finding patterns in information.",
+    "activities": ["Analyze sports stats", "Visualize data in a spreadsheet", "Try a data puzzle on Kaggle"],
+    "riasec": ["Investigative", "Conventional"],
+    "aptitude": ["Numerical", "Reasoning"],
+    "personality": ["Analytical", "Organized", "Focused"],
+    "careerClusters": ["Science & Mathematics", "Information Technology & Computer Science", "Finance & Banking"],
+    "skills": ["Data Analysis", "Statistical Thinking", "Research Methods", "Critical Analysis"],
+    "learningStyle": "Analytical learning with data analysis and research projects"
+  }
+} 

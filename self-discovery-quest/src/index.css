@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body, #root { height: 100%; }
+}
+
+@layer components {
+  .container-root { @apply min-h-dvh max-w-md mx-auto bg-white shadow-sm; }
+}
+
+@layer utilities {}

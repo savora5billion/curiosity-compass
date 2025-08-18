@@ -1,0 +1,263 @@
+{
+  "locations": [
+    {
+      "id": 1,
+      "name": "Ancient Library",
+      "bg": "bg-gradient-to-b from-blue-50 to-blue-100",
+      "guide": "🧙‍♂️ A wise librarian beckons you to explore ancient knowledge.",
+      "prompt": "You discover a complex puzzle in an old manuscript. How do you approach solving it?",
+      "options": [
+        { 
+          "label": "Analyze the patterns and create a systematic approach", 
+          "gives": ["Thinker", "Analyst"],
+          "aptitude": ["Reasoning", "Numerical"],
+          "riasec": ["Investigative"],
+          "personality": ["Focused", "Analytical"]
+        },
+        { 
+          "label": "Sketch out visual diagrams to understand the structure", 
+          "gives": ["Explorer", "Artist"],
+          "aptitude": ["Spatial", "Reasoning"],
+          "riasec": ["Artistic", "Investigative"],
+          "personality": ["Imaginative", "Visual"]
+        },
+        { 
+          "label": "Ask others for help and collaborate on the solution", 
+          "gives": ["Healer", "Leader"],
+          "aptitude": ["Verbal"],
+          "riasec": ["Social"],
+          "personality": ["Cooperative", "Warm"]
+        },
+        { 
+          "label": "Follow the established rules and procedures step by step", 
+          "gives": ["Maker", "Analyst"],
+          "aptitude": ["Numerical"],
+          "riasec": ["Conventional"],
+          "personality": ["Organized", "Practical"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Innovation Workshop",
+      "bg": "bg-gradient-to-b from-rose-50 to-rose-100",
+      "guide": "🔧 An inventor invites you to create something amazing.",
+      "prompt": "You're given materials to build something innovative. What do you create?",
+      "options": [
+        { 
+          "label": "Design a practical tool that solves a real problem", 
+          "gives": ["Maker", "Innovator"],
+          "aptitude": ["Mechanical", "Spatial"],
+          "riasec": ["Realistic"],
+          "personality": ["Practical", "Organized"]
+        },
+        { 
+          "label": "Create an artistic installation that expresses emotions", 
+          "gives": ["Artist", "Performer"],
+          "aptitude": ["Spatial", "Verbal"],
+          "riasec": ["Artistic"],
+          "personality": ["Imaginative", "Expressive"]
+        },
+        { 
+          "label": "Build a system that helps others work more efficiently", 
+          "gives": ["Healer", "Leader"],
+          "aptitude": ["Mechanical", "Reasoning"],
+          "riasec": ["Social", "Realistic"],
+          "personality": ["Cooperative", "Practical"]
+        },
+        { 
+          "label": "Develop a prototype for a new business idea", 
+          "gives": ["Innovator", "Leader"],
+          "aptitude": ["Spatial", "Verbal"],
+          "riasec": ["Enterprising", "Artistic"],
+          "personality": ["Goal-oriented", "Imaginative"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Community Garden",
+      "bg": "bg-gradient-to-b from-green-50 to-green-100",
+      "guide": "🌱 A gardener shows you how to nurture growth.",
+      "prompt": "You notice the garden needs better organization. How do you help improve it?",
+      "options": [
+        { 
+          "label": "Create a detailed plan and coordinate everyone's efforts", 
+          "gives": ["Leader", "Analyst"],
+          "aptitude": ["Numerical", "Verbal"],
+          "riasec": ["Conventional", "Social"],
+          "personality": ["Organized", "Goal-oriented"]
+        },
+        { 
+          "label": "Design beautiful layouts and inspire others with your vision", 
+          "gives": ["Artist", "Performer"],
+          "aptitude": ["Spatial", "Verbal"],
+          "riasec": ["Artistic", "Social"],
+          "personality": ["Imaginative", "Energetic"]
+        },
+        { 
+          "label": "Research best practices and implement scientific methods", 
+          "gives": ["Thinker", "Naturalist"],
+          "aptitude": ["Reasoning", "Numerical"],
+          "riasec": ["Investigative"],
+          "personality": ["Analytical", "Focused"]
+        },
+        { 
+          "label": "Teach others new techniques and share your knowledge", 
+          "gives": ["Healer", "Leader"],
+          "aptitude": ["Verbal", "Mechanical"],
+          "riasec": ["Social"],
+          "personality": ["Cooperative", "Warm"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Digital Marketplace",
+      "bg": "bg-gradient-to-b from-purple-50 to-purple-100",
+      "guide": "💻 A tech entrepreneur offers you a chance to create something digital.",
+      "prompt": "You have an opportunity to create a digital product. What do you focus on?",
+      "options": [
+        { 
+          "label": "Develop a useful app that solves everyday problems", 
+          "gives": ["Thinker", "Maker"],
+          "aptitude": ["Reasoning", "Spatial"],
+          "riasec": ["Realistic", "Investigative"],
+          "personality": ["Practical", "Focused"]
+        },
+        { 
+          "label": "Create engaging content that entertains and educates", 
+          "gives": ["Artist", "Performer"],
+          "aptitude": ["Verbal", "Spatial"],
+          "riasec": ["Artistic", "Social"],
+          "personality": ["Imaginative", "Expressive"]
+        },
+        { 
+          "label": "Build a platform that connects people and communities", 
+          "gives": ["Healer", "Leader"],
+          "aptitude": ["Verbal", "Reasoning"],
+          "riasec": ["Social", "Enterprising"],
+          "personality": ["Cooperative", "Energetic"]
+        },
+        { 
+          "label": "Design a system that manages data and processes efficiently", 
+          "gives": ["Analyst", "Thinker"],
+          "aptitude": ["Numerical", "Reasoning"],
+          "riasec": ["Conventional", "Investigative"],
+          "personality": ["Organized", "Analytical"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Grand Stage",
+      "bg": "bg-gradient-to-b from-amber-50 to-amber-100",
+      "guide": "🎭 A performer invites you to share your talents.",
+      "prompt": "You're invited to perform or present something. What do you choose to do?",
+      "options": [
+        { 
+          "label": "Deliver a compelling speech that inspires action", 
+          "gives": ["Performer", "Leader"],
+          "aptitude": ["Verbal"],
+          "riasec": ["Enterprising", "Social"],
+          "personality": ["Energetic", "Goal-oriented"]
+        },
+        { 
+          "label": "Create an artistic performance that moves emotions", 
+          "gives": ["Artist", "Performer"],
+          "aptitude": ["Spatial", "Verbal"],
+          "riasec": ["Artistic"],
+          "personality": ["Imaginative", "Expressive"]
+        },
+        { 
+          "label": "Present research findings that solve real problems", 
+          "gives": ["Thinker", "Analyst"],
+          "aptitude": ["Reasoning", "Verbal"],
+          "riasec": ["Investigative", "Social"],
+          "personality": ["Analytical", "Focused"]
+        },
+        { 
+          "label": "Organize a collaborative performance with others", 
+          "gives": ["Leader", "Healer"],
+          "aptitude": ["Verbal"],
+          "riasec": ["Social"],
+          "personality": ["Cooperative", "Warm"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Research Laboratory",
+      "bg": "bg-gradient-to-b from-teal-50 to-teal-100",
+      "guide": "🧪 A scientist offers you a chance to conduct important research.",
+      "prompt": "You're conducting an important experiment. How do you approach the research?",
+      "options": [
+        { 
+          "label": "Follow strict protocols and document everything systematically", 
+          "gives": ["Analyst", "Thinker"],
+          "aptitude": ["Numerical", "Reasoning"],
+          "riasec": ["Conventional", "Investigative"],
+          "personality": ["Organized", "Focused"]
+        },
+        { 
+          "label": "Explore creative hypotheses and innovative methods", 
+          "gives": ["Explorer", "Innovator"],
+          "aptitude": ["Reasoning", "Spatial"],
+          "riasec": ["Artistic", "Investigative"],
+          "personality": ["Imaginative", "Analytical"]
+        },
+        { 
+          "label": "Collaborate with a team to share knowledge and resources", 
+          "gives": ["Healer", "Leader"],
+          "aptitude": ["Verbal", "Reasoning"],
+          "riasec": ["Social", "Investigative"],
+          "personality": ["Cooperative", "Analytical"]
+        },
+        { 
+          "label": "Focus on practical applications that help people", 
+          "gives": ["Maker", "Healer"],
+          "aptitude": ["Reasoning", "Verbal"],
+          "riasec": ["Realistic", "Social"],
+          "personality": ["Practical", "Cooperative"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Leadership Summit",
+      "bg": "bg-gradient-to-b from-indigo-50 to-indigo-100",
+      "guide": "🏔️ A wise leader asks you to take charge of an important initiative.",
+      "prompt": "You're asked to lead an important initiative. How do you approach leadership?",
+      "options": [
+        { 
+          "label": "Analyze the situation and create a strategic plan", 
+          "gives": ["Leader", "Analyst"],
+          "aptitude": ["Reasoning", "Numerical"],
+          "riasec": ["Enterprising", "Conventional"],
+          "personality": ["Goal-oriented", "Organized"]
+        },
+        { 
+          "label": "Inspire others with a compelling vision and creative ideas", 
+          "gives": ["Innovator", "Performer"],
+          "aptitude": ["Verbal", "Spatial"],
+          "riasec": ["Artistic", "Enterprising"],
+          "personality": ["Imaginative", "Energetic"]
+        },
+        { 
+          "label": "Build strong relationships and empower team members", 
+          "gives": ["Leader", "Healer"],
+          "aptitude": ["Verbal"],
+          "riasec": ["Social", "Enterprising"],
+          "personality": ["Cooperative", "Warm"]
+        },
+        { 
+          "label": "Focus on practical execution and measurable results", 
+          "gives": ["Maker", "Analyst"],
+          "aptitude": ["Numerical", "Mechanical"],
+          "riasec": ["Realistic", "Conventional"],
+          "personality": ["Practical", "Focused"]
+        }
+      ]
+    }
+  ]
+} 

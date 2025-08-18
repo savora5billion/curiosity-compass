@@ -1,0 +1,220 @@
+{
+  "activities": [
+    {
+      "id": "numerical-finance-course",
+      "title": "Financial Literacy & Data Analysis",
+      "description": "Master numerical thinking through financial planning, data analysis, and business analytics",
+      "archetypes": ["Analyst", "Thinker"],
+      "careerClusters": ["Finance & Banking", "Business Management", "Information Technology & Computer Science"],
+      "tier": "mini",
+      "durationMin": 480,
+      "cost": "no-cost",
+      "soloTeam": "solo",
+      "tags": ["indoor", "analytical", "data", "finance"],
+      "skills": ["Financial Planning", "Data Analysis", "Statistical Thinking", "Business Analytics", "Excel Mastery"],
+      "resources": ["Google Sheets", "Excel", "Kaggle Datasets", "Investopedia", "Yahoo Finance"],
+      "credential": "Financial Analysis Certificate",
+      "xp": 300,
+      "modules": [
+        {
+          "title": "Personal Finance Fundamentals",
+          "duration": "2 weeks",
+          "topics": ["Budgeting", "Saving Strategies", "Investment Basics", "Compound Interest"],
+          "projects": ["Create Personal Budget", "Investment Portfolio Analysis"]
+        },
+        {
+          "title": "Data Visualization & Analysis",
+          "duration": "3 weeks", 
+          "topics": ["Excel Formulas", "Charts & Graphs", "Statistical Analysis", "Data Storytelling"],
+          "projects": ["Market Data Dashboard", "Survey Analysis Report"]
+        },
+        {
+          "title": "Business Financial Modeling",
+          "duration": "2 weeks",
+          "topics": ["Financial Statements", "ROI Calculations", "Business Metrics", "Forecasting"],
+          "projects": ["Business Financial Model", "Investment Pitch Deck"]
+        }
+      ]
+    },
+    {
+      "id": "verbal-communication-course",
+      "title": "Communication & Public Speaking",
+      "description": "Develop powerful verbal skills through public speaking, content creation, and digital communication",
+      "archetypes": ["Performer", "Leader"],
+      "careerClusters": ["Mass Communication", "Education & Teaching", "Business Management"],
+      "tier": "mini",
+      "durationMin": 360,
+      "cost": "no-cost",
+      "soloTeam": "team",
+      "tags": ["indoor", "communication", "presentation", "creative"],
+      "skills": ["Public Speaking", "Content Creation", "Digital Communication", "Storytelling", "Persuasion"],
+      "resources": ["Toastmasters Resources", "Canva", "Audacity", "YouTube", "LinkedIn Learning"],
+      "credential": "Communication Excellence Certificate",
+      "xp": 250,
+      "modules": [
+        {
+          "title": "Public Speaking Fundamentals",
+          "duration": "2 weeks",
+          "topics": ["Speech Structure", "Voice Modulation", "Body Language", "Audience Engagement"],
+          "projects": ["TED-style Talk", "Debate Competition"]
+        },
+        {
+          "title": "Digital Content Creation",
+          "duration": "3 weeks",
+          "topics": ["Blog Writing", "Video Scripting", "Social Media", "Brand Voice"],
+          "projects": ["Content Series", "Personal Brand Campaign"]
+        },
+        {
+          "title": "Professional Communication",
+          "duration": "2 weeks",
+          "topics": ["Email Etiquette", "Meeting Facilitation", "Conflict Resolution", "Networking"],
+          "projects": ["Communication Strategy", "Professional Network Building"]
+        }
+      ]
+    },
+    {
+      "id": "mechanical-engineering-course",
+      "title": "Engineering & Technical Skills",
+      "description": "Build hands-on technical skills through robotics, electronics, and mechanical design",
+      "archetypes": ["Maker", "Analyst"],
+      "careerClusters": ["Engineering & Technology", "Information Technology & Computer Science"],
+      "tier": "mini",
+      "durationMin": 600,
+      "cost": "low-cost",
+      "soloTeam": "team",
+      "tags": ["indoor", "engineering", "hands-on", "technical"],
+      "skills": ["Prototyping", "Technical Design", "Problem Solving", "Electronics", "3D Design"],
+      "resources": ["Arduino", "Tinkercad", "Fusion 360", "Raspberry Pi", "3D Printer"],
+      "credential": "Engineering Design Certificate",
+      "xp": 400,
+      "modules": [
+        {
+          "title": "Electronics & Robotics",
+          "duration": "3 weeks",
+          "topics": ["Circuit Design", "Arduino Programming", "Sensor Integration", "Robot Building"],
+          "projects": ["Smart Home Device", "Line Following Robot"]
+        },
+        {
+          "title": "3D Design & Prototyping",
+          "duration": "2 weeks",
+          "topics": ["CAD Software", "3D Modeling", "Prototyping", "Design Thinking"],
+          "projects": ["3D Printed Product", "Product Design Portfolio"]
+        },
+        {
+          "title": "Mechanical Systems",
+          "duration": "2 weeks",
+          "topics": ["Simple Machines", "Mechanical Principles", "System Design", "Troubleshooting"],
+          "projects": ["Mechanical Device", "System Optimization"]
+        }
+      ]
+    },
+    {
+      "id": "spatial-design-course",
+      "title": "Visual Design & Creative Arts",
+      "description": "Master spatial thinking through graphic design, digital art, and visual communication",
+      "archetypes": ["Artist", "Innovator"],
+      "careerClusters": ["Art & Design", "Animation, Graphics & Visual Communication", "Mass Communication"],
+      "tier": "mini",
+      "durationMin": 420,
+      "cost": "no-cost",
+      "soloTeam": "solo",
+      "tags": ["indoor", "creative", "design", "visual"],
+      "skills": ["Visual Design", "Digital Art", "Brand Development", "User Experience", "Creative Thinking"],
+      "resources": ["Canva", "Figma", "Adobe Creative Suite", "Procreate", "Behance"],
+      "credential": "Digital Design Certificate",
+      "xp": 350,
+      "modules": [
+        {
+          "title": "Graphic Design Fundamentals",
+          "duration": "2 weeks",
+          "topics": ["Typography", "Color Theory", "Layout Design", "Visual Hierarchy"],
+          "projects": ["Brand Identity System", "Marketing Campaign Design"]
+        },
+        {
+          "title": "Digital Art & Illustration",
+          "duration": "3 weeks",
+          "topics": ["Digital Drawing", "Vector Graphics", "Animation Basics", "Art Direction"],
+          "projects": ["Digital Art Portfolio", "Animated Logo"]
+        },
+        {
+          "title": "User Experience Design",
+          "duration": "2 weeks",
+          "topics": ["User Research", "Wireframing", "Prototyping", "Usability Testing"],
+          "projects": ["Mobile App Design", "Website Redesign"]
+        }
+      ]
+    },
+    {
+      "id": "reasoning-programming-course",
+      "title": "Programming & Problem Solving",
+      "description": "Develop logical thinking through coding, algorithms, and computational problem solving",
+      "archetypes": ["Thinker", "Analyst"],
+      "careerClusters": ["Information Technology & Computer Science", "Engineering & Technology"],
+      "tier": "mini",
+      "durationMin": 540,
+      "cost": "no-cost",
+      "soloTeam": "solo",
+      "tags": ["indoor", "technical", "analytical", "programming"],
+      "skills": ["Programming", "Algorithm Design", "Problem Solving", "Logical Thinking", "Debugging"],
+      "resources": ["Codecademy", "GitHub", "LeetCode", "Python", "JavaScript"],
+      "credential": "Programming Fundamentals Certificate",
+      "xp": 400,
+      "modules": [
+        {
+          "title": "Programming Fundamentals",
+          "duration": "3 weeks",
+          "topics": ["Python Basics", "Variables & Data Types", "Control Structures", "Functions"],
+          "projects": ["Calculator App", "Simple Game"]
+        },
+        {
+          "title": "Algorithm & Problem Solving",
+          "duration": "2 weeks",
+          "topics": ["Data Structures", "Algorithm Design", "Complexity Analysis", "Optimization"],
+          "projects": ["Problem Solving Portfolio", "Algorithm Visualization"]
+        },
+        {
+          "title": "Web Development",
+          "duration": "2 weeks",
+          "topics": ["HTML/CSS", "JavaScript", "Responsive Design", "Web APIs"],
+          "projects": ["Personal Website", "Interactive Web App"]
+        }
+      ]
+    },
+    {
+      "id": "social-leadership-course",
+      "title": "Leadership & Team Management",
+      "description": "Build leadership skills through team projects, community service, and organizational management",
+      "archetypes": ["Leader", "Healer"],
+      "careerClusters": ["Business Management", "Education & Teaching", "Government & Defence Services"],
+      "tier": "mini",
+      "durationMin": 300,
+      "cost": "no-cost",
+      "soloTeam": "team",
+      "tags": ["outdoor", "leadership", "social", "management"],
+      "skills": ["Team Leadership", "Project Management", "Communication", "Conflict Resolution", "Strategic Planning"],
+      "resources": ["Project Management Tools", "Leadership Books", "Community Organizations", "Mentorship Programs"],
+      "credential": "Leadership Excellence Certificate",
+      "xp": 300,
+      "modules": [
+        {
+          "title": "Leadership Fundamentals",
+          "duration": "2 weeks",
+          "topics": ["Leadership Styles", "Team Building", "Motivation", "Decision Making"],
+          "projects": ["Team Project Leadership", "Leadership Style Analysis"]
+        },
+        {
+          "title": "Project Management",
+          "duration": "2 weeks",
+          "topics": ["Project Planning", "Resource Management", "Risk Assessment", "Stakeholder Communication"],
+          "projects": ["Community Service Project", "Event Planning"]
+        },
+        {
+          "title": "Community Impact",
+          "duration": "2 weeks",
+          "topics": ["Social Responsibility", "Community Development", "Advocacy", "Sustainable Leadership"],
+          "projects": ["Social Impact Initiative", "Community Partnership"]
+        }
+      ]
+    }
+  ]
+} 
